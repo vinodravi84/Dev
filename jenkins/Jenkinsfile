@@ -2,13 +2,12 @@ pipeline {
     agent any
 
     environment {
-        BRANCH='main'
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/vinodravi84/Dev.git'
+                git branch: 'main',url:'https://github.com/vinodravi84/Dev.git'
             }
         }
 
