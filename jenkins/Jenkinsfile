@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    environment {
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/vinodravi84/Dev.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'docker-compose build'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
+    }
+}
